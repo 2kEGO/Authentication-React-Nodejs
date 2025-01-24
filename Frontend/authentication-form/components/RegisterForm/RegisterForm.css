@@ -1,0 +1,38 @@
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.register-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    min-height: 100vh; /* Full viewport height */
+    padding: 2rem;
+    color: #fff; /* Ensure text is readable */
+    box-sizing: border-box;
+}
+
+.register-form-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px; /* Limit the maximum width of the wrapper */
+    width: 100%;
+    background-color: #2a2a2a; /* Slightly lighter background for contrast */
+    border-radius: 1rem; /* Rounded corners for the card */
+    overflow: hidden; /* Prevent child elements from overflowing */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+}
+
+.register-form-wrapper form, #img-container {
+    width: 50%;
+}
+
+#img-container {
+    height: 100%;
+    width: 100%;
+}
