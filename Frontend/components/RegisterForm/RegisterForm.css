@@ -43,7 +43,50 @@
     margin-bottom: 1em;
 
     min-height: 5vh;
+    
 }
+
+.input-box input {
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.input-box label{
+    font-size: 100%;
+  
+
+  padding: 0.8em;
+  margin-left: 0.5em;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  color: rgb(100, 100, 100);
+}
+
+.button-container {
+    margin-top: 2rem;
+    min-height: 5vh;
+}
+
+#button {
+    margin: 20px 0 20px 0;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #323232;
+  background-color: #fff;
+  box-shadow: 4px 4px #323232;
+  font-size: 17px;
+  font-weight: 600;
+  color: #323232;
+  cursor: pointer;
+}
+
+/* IMAGE  */
 
 #img-container {
     display: flex;

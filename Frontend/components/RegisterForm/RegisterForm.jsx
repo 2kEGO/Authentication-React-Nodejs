@@ -124,8 +124,10 @@ export default function RegisterForm () {
                         </p>
 
                     </div>
-                    <button type="submit" disabled={!validUser && !validPwd && !validConfirmPwd? true: false}>Submit</button>
 
+                    <div className="button-container">
+                        <button id='button' type="submit" disabled={!validUser && !validPwd && !validConfirmPwd? true: false}>Submit</button>
+                    </div>
                 </form>
 
                 <div id='img-container'>
