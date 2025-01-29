@@ -1,0 +1,62 @@
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.register-form-container {
+    display: flex;
+
+    /* padding: 1em; */
+
+    min-height: 98vh;
+    width: 99%;
+}
+
+#form, #img-container {
+    width: 50%;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+}
+
+#title {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+
+    width: 60%;
+
+    margin-bottom: 1em;
+
+    min-height: 5vh;
+}
+
+#img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2em;
+}
+
+#img-container img {
+    object-fit: cover; 
+    height: 100%;      
+    width: 100%;
+
+    border-radius: 20px;
+}
