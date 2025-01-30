@@ -28,3 +28,30 @@ export const RegisterUser = async (user, pwd, setAccountCreated) => {
         console.error(error);
     }
 }
+
+export const LoginUser = async (userData, setLogIn) => {
+
+    try {
+        const res = await fetch ('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+
+        const data = await res.json()
+
+        if(!res.ok){
+            throw new Error(`HTTP error! Status: ${res.status}, Message: ${data.message || "Unknown error"}`);
+        }
+
+        console.log("Login Succesfully", data)
+
+        setLogIn(true);
+
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
