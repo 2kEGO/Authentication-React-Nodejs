@@ -1,14 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './LoginForm.css'
 import { LoginUser } from '../../services/authServices';
-
+import {AuthContext} from '../../context/AuthContext.js';
 
 export default function LoginForm () {
 
     const [user, setUser] = useState('')
     const [pwd, setPwd] = useState('')
     const [logIn, setLogIn] = useState(false)
+    const [notLoggedIn, setNotLoggedIn] = useState(false)
 
+    const [auth, setAuth] = useContext(AuthContext)
     
     const handleLogin = async (e) =>{
         e.preventDefault()
@@ -23,11 +25,16 @@ export default function LoginForm () {
                 alert('Login Successful')
                 setUser('')
                 setPwd('')
-                setLogIn(false)
+                setAuth(true)
             }
+            else{
+                setNotLoggedIn(true)
+            }
+            
 
         } catch (error) {
                 console.error(error)
+                setNotLoggedIn(true)
         }
     }
 
@@ -61,7 +68,7 @@ export default function LoginForm () {
                         />
                     </div>
 
-                    <p>Username or Password doens't match</p>
+                    <p className={notLoggedIn? 'show': 'hidden'}>Username or Password doesn't match</p>
 
                     <button type="submit">Login</button>                   
                     
