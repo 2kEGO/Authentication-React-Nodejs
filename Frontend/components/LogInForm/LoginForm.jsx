@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import './LoginForm.css'
 import { LoginUser } from '../../services/authServices';
-import {AuthContext} from '../../context/AuthContext.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginForm () {
 
@@ -9,34 +9,56 @@ export default function LoginForm () {
     const [pwd, setPwd] = useState('')
     const [logIn, setLogIn] = useState(false)
     const [notLoggedIn, setNotLoggedIn] = useState(false)
+    const navigate = useNavigate()
 
-    const [auth, setAuth] = useContext(AuthContext)
     
     const handleLogin = async (e) =>{
         e.preventDefault()
 
-        const userData = {user, pwd}
+        const userData = {user, pwd};
 
-        try {
+        const success = await LoginUser(userData);
 
-            await LoginUser(userData, setLogIn)
-
-            if(logIn){
-                alert('Login Successful')
-                setUser('')
-                setPwd('')
-                setAuth(true)
+            if (success) {
+                setLogIn(true);
             }
-            else{
-                setNotLoggedIn(true)
-            }
+            else {
+                setNotLoggedIn(true);
+            
+        };
+
+    
+
+        // try {
+
+        //     await LoginUser(userData, setLogIn)
+
+        
+        //     if(logIn){
+        //         setUser('')
+        //         setPwd('')
+        //         // setAuth(true)
+        //         navigate("/homepage")
+
+        //     }
+        //     else{
+        //         setNotLoggedIn(true)
+        //     }
             
 
-        } catch (error) {
-                console.error(error)
-                setNotLoggedIn(true)
-        }
+        // } catch (error) {
+        //         console.error(error)
+        // }
     }
+
+    useEffect(() => {
+
+        if (logIn) {
+            navigate("/homepage");
+            setUser('')
+            setPwd('')
+        }
+    },[logIn, navigate]);
 
     return (
         <>
@@ -53,7 +75,8 @@ export default function LoginForm () {
                             id="user" 
                             required={true} 
                             value={user}
-                            onChange={(e) => setUser(e.target.value)}   
+                            onChange={(e) => setUser(e.target.value)}
+                            autoComplete='false'   
                         />
                     </div>
 
@@ -64,7 +87,8 @@ export default function LoginForm () {
                         id="pwd" 
                         required={true}
                         value={pwd}
-                        onChange={(e) => setPwd(e.target.value)} 
+                        onChange={(e) => setPwd(e.target.value)}
+                        autoComplete='false' 
                         />
                     </div>
 

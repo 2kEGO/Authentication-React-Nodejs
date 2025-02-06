@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 
 export const RegisterUser = async (user, pwd, setAccountCreated) => {
     try {
@@ -29,7 +30,7 @@ export const RegisterUser = async (user, pwd, setAccountCreated) => {
     }
 }
 
-export const LoginUser = async (userData, setLogIn) => {
+export const LoginUser = async (userData) => {
 
     try {
         const res = await fetch ('http://localhost:5000/api/login', {
@@ -48,10 +49,18 @@ export const LoginUser = async (userData, setLogIn) => {
 
         console.log("Login Succesfully", data)
 
-        setLogIn(true);
+        // setLogIn(true);
+
+        const token = data.token;
+
+        Cookies.set('token', token, { expires: 7 });
+        Cookies.set('user', data.user, {expires: 7});
+
+        return true;
 
     }
     catch (error) {
         console.error(error);
+        return false;
     }
 }
