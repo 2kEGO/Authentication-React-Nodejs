@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react';
 import './LoginForm.css'
-import { LoginUser } from '../../services/authServices';
+import { LoginUser } from '../../../services/authServices';
 import { useNavigate } from 'react-router-dom';
+
 
 export default function LoginForm () {
 
@@ -27,28 +28,6 @@ export default function LoginForm () {
             
         };
 
-    
-
-        // try {
-
-        //     await LoginUser(userData, setLogIn)
-
-        
-        //     if(logIn){
-        //         setUser('')
-        //         setPwd('')
-        //         // setAuth(true)
-        //         navigate("/homepage")
-
-        //     }
-        //     else{
-        //         setNotLoggedIn(true)
-        //     }
-            
-
-        // } catch (error) {
-        //         console.error(error)
-        // }
     }
 
     useEffect(() => {

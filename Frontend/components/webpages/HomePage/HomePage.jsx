@@ -1,8 +1,11 @@
-import React, {useState} from 'react'
-import './HomePage.css'
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faAngleUp} from '@fortawesome/free-solid-svg-icons'
+import React, {useState} from 'react';
+import './HomePage.css';
+import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faAngleUp} from '@fortawesome/free-solid-svg-icons';
 import {faEllipsisVertical} from '@fortawesome/free-solid-svg-icons'
+import {faClock} from '@fortawesome/free-solid-svg-icons'
+
+
 
 
 const HomePage = () => {
@@ -36,21 +39,28 @@ const HomePage = () => {
 
           <div className="list-container">
             <ol>
-              {task.map((task, index) => 
-                <li key={index}>
-                  <div className="list-info">
-                    <input type="checkbox"/>
-                    <span>{task}</span>
+              {task.map((taskItem, index) => 
+              <li key={index}>
+
+                <div className="list-info" id='info-left'>
+                  <input type="checkbox" />
+                  <span>{taskItem}</span>
+                </div>
+        
+                <div className="list-info" id='info-right'>
+                  <div id='date-display'>
+                    <FontAwesomeIcon icon={faClock} />
+                    <h4>12.00</h4>
+                    <span></span>
+                    <h4>00.00</h4>                    
                   </div>
-                  
-                  <div className="list-info">
-                    <button>time</button>
-                    <button>
-                      <FontAwesomeIcon icon={faEllipsisVertical} />
-                    </button>
-                  </div>
-                  
-                </li>)}
+        
+                  <button>
+                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                  </button>
+                </div>
+        
+              </li>)}
             </ol>
           </div>
 
@@ -65,3 +75,5 @@ const HomePage = () => {
 }
 
 export default HomePage
+
+

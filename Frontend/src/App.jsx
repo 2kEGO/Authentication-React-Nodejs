@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 
-import RegisterForm from '../components/RegisterForm/RegisterForm.jsx'
-import LoginForm from '../components/LogInForm/LoginForm.jsx'
-import HomePage from '../components/HomePage/HomePage.jsx'
+import RegisterForm from '../components/webpages/RegisterForm/RegisterForm.jsx'
+import LoginForm from '../components/webpages/LogInForm/LoginForm.jsx'
+import HomePage from '../components/webpages/HomePage/HomePage.jsx'
 
 function App() {
 

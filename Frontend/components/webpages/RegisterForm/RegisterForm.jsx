@@ -1,8 +1,8 @@
 import './RegisterForm.css'
 import React, { useEffect, useState } from 'react';
-import {RegisterUser} from '../../services/authServices.js';
+import {RegisterUser} from '../../../services/authServices.js';
 
-import img from '../../public/10468707.jpg'
+// import {img} from '../../public/10468707.jpg';
 
 
 
@@ -131,7 +131,7 @@ export default function RegisterForm () {
                 </form>
 
                 <div id='img-container'>
-                    <img src={img} alt="" id='img'/>
+                    <img src='' alt="" id='img'/>
                 </div>
             </div>
         </>

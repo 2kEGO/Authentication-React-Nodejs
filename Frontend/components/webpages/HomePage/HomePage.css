@@ -94,3 +94,24 @@
 
     background-color: var(--white-color);
 }
+
+
+.list-info {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#date-display {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+#date-display span {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    border-radius: 5px;
+}
