@@ -1,0 +1,22 @@
+.addTask-button-container button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 10px;
+    padding-left: 20px;
+
+    width: 100%;
+
+    border-radius: 50px;
+    cursor: pointer;
+
+    background-color: var(--black-color);
+    color: white;
+}
+
+.addTask-button-container button h3 {
+    font-family: var(--montserrat-font);
+    font-weight: 400;
+}

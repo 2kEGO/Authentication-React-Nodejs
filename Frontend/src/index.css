@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat+Subrayada:regular,700);
+
 body {
     margin: 0;
     padding: 0;
@@ -7,4 +10,17 @@ body {
 #root {
     --silver-color: rgba(246,246,246,255);
     --white-color: rgba(255,255,255,255);
+    --black-color: rgb(0, 0, 0);
+
+    --inter-font: "inter", sans-serif;
+    --montserrat-font: "montserrat", sans-serif;
+    
+}
+
+.show {
+    display: flex;
+}
+
+.hidden {
+    display: none;
 }

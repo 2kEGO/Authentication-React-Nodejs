@@ -1,0 +1,21 @@
+.calendar-day {
+
+}
+
+.calendar-day ul {
+    list-style: none;
+
+    padding: 0 2rem;
+    margin: 0 2rem;
+
+    
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    place-content: center;
+
+    text-align: center;
+    font-family: var(--montserrat-font);
+    font-size: 11pt;
+    font-weight: 500;
+}

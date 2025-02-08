@@ -3,6 +3,8 @@
 
     display: flex;
     flex-direction: row;
+
+    position: relative;
 }
 
 .mainpage-left {
@@ -10,8 +12,11 @@
 
 }
 
+/* MAIN PAGE RIGHT SIDE STARTS HERE  */
+
 .mainpage-right {
     width: 70%;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -23,7 +28,22 @@
 .mainpage-right-wrapper {
     margin: 0 5rem;
     padding: 2rem 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
 }
+
+.upper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* KINDA LIKE DASH BOARD STARTS HERE  */
 
 .top-container {
     width: 100%;
@@ -66,52 +86,157 @@
 
 
 
-.list-container {
-    width: 100%;
+/*TOP WRAPPER LEFT SIDE STARTS HERE */
 
-    display: flex;
-    flex-direction: column;
-       
+#info-left {
+    align-items: center;
 }
 
-.list-container ol {
+.info-left-wrapper {
     padding: 0;
-    margin: 0;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.list-container ol li {
-    min-height: 5vh;
-    padding: 0.5em;
+    border-radius: 5px;
 
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+}
 
-    background-color: var(--white-color);
+.info-left-wrapper input[type="checkbox"] {
+    appearance: auto;
+    width: 25px;
+    height: 25px;
+
+    margin: 0;
+    border: 1px solid var(--silver-color);
+    border-radius: 5px;
+
+    margin-right: 10px;
+}
+
+.info-left-wrapper h4 {
+    margin: 0;
+    margin-left: 10px;
+    
+    font-size: 20px;
+    font-family: var(--montserrat-font);
+    font-weight: 600;
 }
 
 
-.list-info {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
+
+/* TOP WRAPPER RIGHT SIDE STARTS HERE */
 
 #date-display {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
+
+    padding: 0.5em;
+    border-radius: 5px;
+
+    background-color: var(--silver-color);
+
+    height: 100%;
 }
 
+
 #date-display span {
-    width: 100%;
-    height: 5px;
+    width: 10px;
+    height: 2px;
     background-color: black;
     border-radius: 5px;
+}
+
+#date-display h4 {
+    margin: 0;
+    padding: 0;
+
+}
+
+#info-right {
+    align-items: center;
+
+    
+}
+
+#info-right button {
+
+    border: 0;
+    padding: 0.5em;
+    border-radius: 5px;
+
+    background-color: var(--silver-color);
+
+}
+
+
+#info-right button svg {
+    height: 15px;
+    width: 15px;
+}
+
+
+/* CREATE NEW TASK STARTS HERE */
+
+
+/* ADD TASK BUTTON */
+
+.addTask-wrapper {
+    position: absolute;
+
+    bottom: 0;
+    width: 100%;
+    
+    display: flex; 
+    justify-content: center;
+}
+
+.addTask-container {
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.addTask-button-container {
+    width: 100%;
+    min-height: 5vh;
+
+    background-color: var(--silver-color);
+
+    display: flex;
+    justify-content: center;
+    
+    margin: 1em 0;
+
+    /* margin: 0.5em; */
+}
+
+
+
+/* ADD TASK FORM STARTS HERE  */
+
+#addTask-form-wrapper {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    border: 1px solid black;
+
+    
+}
+
+
+.addTask-form-container {
+
+    background-color: var(--white-color);
+
+    margin: 0.5em;
+    
 }

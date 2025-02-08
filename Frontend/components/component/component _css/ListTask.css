@@ -1,0 +1,44 @@
+/* LIST CONTAINER STARTS HERE */
+
+.list-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+       
+}
+
+.list-container ol {
+    padding: 0;
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-container ol li {
+    max-height: 5vh;
+    
+    padding: 0.5em;
+
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: var(--white-color);
+}
+
+
+.list-info {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    height: 100%;
+
+    
+}
