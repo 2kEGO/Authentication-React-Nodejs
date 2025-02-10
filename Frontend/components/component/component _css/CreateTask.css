@@ -1,3 +1,18 @@
+/* CREAT TASK BUTTON */
+.addTask-button-container {
+    width: 100%;
+    min-height: 5vh;
+
+    background-color: var(--silver-color);
+
+    display: flex;
+    justify-content: center;
+    
+    margin: 1em 0;
+
+    /* margin: 0.5em; */
+}
+
 .addTask-button-container button {
     display: flex;
     flex-direction: row;

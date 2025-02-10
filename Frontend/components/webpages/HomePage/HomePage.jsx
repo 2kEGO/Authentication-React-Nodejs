@@ -6,6 +6,7 @@ import {faAngleUp, faNoteSticky, faCalendar} from '@fortawesome/free-solid-svg-i
 
 import { CreateTask } from '../../component/CreateTask';
 import ListTask from '../../component/ListTask';
+import SelectMonth from '../../component/SelectMonth';
 import Calendar from '../../component/Calendar';
 
 
@@ -14,6 +15,9 @@ const HomePage = () => {
 
   const [task, setTask] = useState(["Get fucked"])
   const [toggle, toggleTask] = useState(false)
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const [list, setList] = useState("[]");
 
   // const toggleThis = () =>{
   //   toggleTask((prev) => !prev);
@@ -69,11 +73,13 @@ const HomePage = () => {
         <div id="addTask-form-wrapper" >
 
           <div className="addTask-form-container">
-              <div className="addTask-form-item">
-                <input type="text" name="" id="" />
+
+              <div className="addTask-form-item" id="item-1">
+                <img src={list} alt="" />
+                <input type="text" name="" />
               </div>
 
-              <div className='addTask-form-item'>
+              <div className='addTask-form-item' id='item-2'>
                 <select name="" id="">
                   <option value=""></option>
                 </select>
@@ -81,16 +87,18 @@ const HomePage = () => {
                 <button><FontAwesomeIcon icon={faNoteSticky} /></button>
               </div>
 
-              <div className="addTask-form-item">
+              <div className="addTask-form-item" id='item-3'>
+                <SelectMonth currentDate={currentDate} setCurrentDate={setCurrentDate}/>
+              </div>
+
+              <div className="addTask-form-item" id='item-4'>
                 <Calendar/>
               </div>
 
-              <div className="addTask-form-item">
+              <div className="addTask-form-item" id='item-5'>
                 <button>Set Time</button>
                 <button>Save Changes</button>
               </div>
-
-              
 
           </div>
 

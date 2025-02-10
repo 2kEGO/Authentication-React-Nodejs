@@ -1,12 +1,19 @@
-.calendar-day {
+.calendar {
+    display: flex;
+    flex-direction: column;
 
 }
 
-.calendar-day ul {
+
+.calendar ul {
     list-style: none;
 
-    padding: 0 2rem;
-    margin: 0 2rem;
+    width: 50%;
+    /* padding: 0 2rem;
+    margin: 0 2rem; */
+
+    padding: 0;
+    margin: 0;
 
     
     display: grid;

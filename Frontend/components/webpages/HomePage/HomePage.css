@@ -180,12 +180,12 @@
 /* CREATE NEW TASK STARTS HERE */
 
 
-/* ADD TASK BUTTON */
-
+/* ADD TASK FORM STARTS HERE  */
 .addTask-wrapper {
     position: absolute;
 
     bottom: 0;
+    left: 0;
     width: 100%;
     
     display: flex; 
@@ -193,50 +193,78 @@
 }
 
 .addTask-container {
-    width: 40%;
+    width: 25%;
 
     display: flex;
     flex-direction: column;
 
+    margin-left: 0rem;
+
 }
-
-.addTask-button-container {
-    width: 100%;
-    min-height: 5vh;
-
-    background-color: var(--silver-color);
-
-    display: flex;
-    justify-content: center;
-    
-    margin: 1em 0;
-
-    /* margin: 0.5em; */
-}
-
-
-
-/* ADD TASK FORM STARTS HERE  */
 
 #addTask-form-wrapper {
 
     width: 100%;
-    display: flex;
-    flex-direction: column;
 
     margin-bottom: 10px;
+    padding: 0.5em;
 
     border-radius: 10px;
     border: 1px solid black;
 
+    background-color: var(--white-color);
     
 }
 
 
 .addTask-form-container {
 
-    background-color: var(--white-color);
+    display: flex;
+    flex-direction: column;
 
-    margin: 0.5em;
-    
+    /* margin: 0.5em; */
+
 }
+
+.addTask-form-item {
+    display: flex;
+    
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#item-1 img  {
+    width: 25px;
+    height: 25px;
+}
+
+#item-1 input {
+    width: 100%;
+    padding: 0.1em;
+}
+
+
+#item-2 select {
+    width: 80%;
+    padding: 0.1em;
+}
+
+#item-2 button {
+    width: 10%;
+    padding: 0.5em;
+    
+    background-color: transparent;
+}
+
+/* #item-2 button svg {
+    height: 20px;
+    width: 20px;
+} */
+
+
+
+
+
+
+
+
