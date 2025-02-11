@@ -9,7 +9,9 @@
     border: 1px solid black;
     border-radius: 50px;
 
-    padding: 0 0.5em;
+    padding: 0.1em 0.2em;
+
+    background-color: rgb(240, 245, 255);
 }
 
 .currentMonth-container{
@@ -22,18 +24,32 @@
 }
 
 .selection-button {
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 2.0em;
+    height: 2.0em;
 
     border-radius: 50%;
+    border: 0.5px solid  #747474;
+    inset: 50%;
 
     padding: 0.5em;
+
+    background-color: var(--white-color);
 }
 
-.currentMonth-container h2 {
+.currentMonth-container h2,  .currentMonth-container svg{
     margin: 0;
 
-    font-family: var(--montserrat-font);
-    font-size: 14pt;
+    color: #5493d8;
+
+    font-family: var(--poppins-font);
+    font-size: 12pt;
     font-weight: 400;
+}
+
+.currentMonth-container h2{
+    padding-left: 10px;
 }

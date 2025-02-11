@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './HomePage.css';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faAngleUp, faNoteSticky, faCalendar} from '@fortawesome/free-solid-svg-icons';
@@ -22,6 +22,7 @@ const HomePage = () => {
   // const toggleThis = () =>{
   //   toggleTask((prev) => !prev);
   // }
+
   
   return (
     <>
@@ -92,12 +93,14 @@ const HomePage = () => {
               </div>
 
               <div className="addTask-form-item" id='item-4'>
-                <Calendar/>
+                <Calendar currentDate={currentDate}/>
               </div>
 
               <div className="addTask-form-item" id='item-5'>
-                <button>Set Time</button>
-                <button>Save Changes</button>
+                <div className="button-container">
+                  <button id='settime-button'>Set Time</button>
+                  <button id='save-button'>Save Changes</button>
+                </div>
               </div>
 
           </div>

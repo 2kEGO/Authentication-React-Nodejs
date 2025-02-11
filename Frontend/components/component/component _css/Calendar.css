@@ -2,27 +2,72 @@
     display: flex;
     flex-direction: column;
 
+    gap: 10px;
+
+    margin: 0 2em;
 }
 
 
 .calendar ul {
     list-style: none;
 
-    width: 50%;
-    /* padding: 0 2rem;
-    margin: 0 2rem; */
+    width: 100%;
 
     padding: 0;
     margin: 0;
 
-    
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
 
-    place-content: center;
+    justify-items: center;
 
     text-align: center;
     font-family: var(--montserrat-font);
     font-size: 11pt;
     font-weight: 500;
+}
+
+.calendar ul li {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 0.6em;
+
+    height: 50%;
+    width: 50%;
+    
+}
+
+/* .calendar-date {
+    grid-template-rows: repeat(6, 1fr);
+
+} */
+
+.day-in-month {
+    border-radius: 50%;
+    border: 0.5px solid transparent;
+    inset: 50%;
+
+    font-weight: 500;
+
+    color: var(--blue-font-color);
+    background-color: var(--dayInMonth-bg-color);
+}
+
+.empty {
+    background-color: var(--silver-color);
+}
+
+.today {
+    border-radius: 50%;
+    border: 0.5px solid transparent;
+    inset: 50%;
+
+    color: white;
+    font-weight: 500;
+
+    background-color: var(--blue-font-color);
 }
