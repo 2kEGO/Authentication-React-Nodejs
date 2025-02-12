@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './HomePage.css';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faAngleUp, faNoteSticky, faCalendar} from '@fortawesome/free-solid-svg-icons';
-
+import {faAngleUp, faCalendar, faPaperclip, faCalendarDays} from '@fortawesome/free-solid-svg-icons';
+import {faNoteSticky} from '@fortawesome/free-regular-svg-icons'
 
 import { CreateTask } from '../../component/CreateTask';
 import ListTask from '../../component/ListTask';
@@ -18,10 +18,6 @@ const HomePage = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const [list, setList] = useState("[]");
-
-  // const toggleThis = () =>{
-  //   toggleTask((prev) => !prev);
-  // }
 
   
   return (
@@ -71,21 +67,25 @@ const HomePage = () => {
       <div className="addTask-container">
 
         {/* ADD TASK FORM */}
-        <div id="addTask-form-wrapper" >
+        <div id="addTask-form-wrapper" style={{ display: toggle ? "block" : "none" }}>
 
           <div className="addTask-form-container">
 
               <div className="addTask-form-item" id="item-1">
-                <img src={list} alt="" />
-                <input type="text" name="" />
+                <span>
+                  <FontAwesomeIcon icon={faPaperclip}/>
+                </span>
+                <input type="text" name="" placeholder='Create New Task'/>
               </div>
 
               <div className='addTask-form-item' id='item-2'>
-                <select name="" id="">
-                  <option value=""></option>
-                </select>
-                <button><FontAwesomeIcon icon={faCalendar} /></button>
-                <button><FontAwesomeIcon icon={faNoteSticky} /></button>
+                <div className="form-button-container">
+                  <select name="" id="">
+                    <option value=""></option>
+                  </select>
+                  <button><FontAwesomeIcon icon={faCalendarDays} /></button>
+                  <button><FontAwesomeIcon icon={faNoteSticky}/></button>
+                </div>
               </div>
 
               <div className="addTask-form-item" id='item-3'>
@@ -109,7 +109,7 @@ const HomePage = () => {
 
         {/* ADD TASK BUTTON */}
         <div className="addTask-button-container">
-          <CreateTask />
+          <CreateTask toggle={toggle} toggleTask={toggleTask}/>
         </div>
 
       </div>

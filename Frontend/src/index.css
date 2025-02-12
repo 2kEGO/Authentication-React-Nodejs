@@ -14,6 +14,7 @@ body {
     --black-color: rgb(0, 0, 0);
     --blue-font-color: rgb(55, 91, 152);
     --dayInMonth-bg-color: #f1f6ff;
+    --today-bg-color: rgb(9, 98, 250);
 
     --setTime-button: rgb(240, 245, 255);
     --save-button: rgb(7, 94, 244);
@@ -26,7 +27,7 @@ body {
 }
 
 .show {
-    display: flex;
+    display: block;
 }
 
 .hidden {

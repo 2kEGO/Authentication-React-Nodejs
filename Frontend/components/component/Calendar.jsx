@@ -19,7 +19,7 @@ const Calendar = ({currentDate}) => {
     <>
         <div className="calendar">
             
-            {/* Day SECTION */}
+            {/* Day in week SECTION */}
             <ul className='calendar-header'>
             {days.map((day,index) => (
                 <li key={index}>{day}</li>
@@ -28,23 +28,28 @@ const Calendar = ({currentDate}) => {
 
             {/* Date SECTION */}
             <ul className='calendar-date'>
+                {/* EMPTY DATE BEFORE START OF MONTH  */}
             {Array(firstDayIndex).fill(null).map((_,i) => 
-                <li key={`empty-${i}`} className="empty"></li>
+                <li key={`empty-${i}`} className="empty"><button disabled='true'></button></li>
             )}
             
-
+                {/* ACTUAL DATE IN THAT MONTH */}
             {daysInMonth.map((day,i) =>(
-                <li 
-                    className={(isToday(day)) ? 'today': 'day-in-month'} 
-                    key={`date-${i}`}
-                    >{format(day, 'd')}
+                <li key={`date-${i}`}>
+                    <button 
+                        className={(isToday(day)) ? 'today': 'day-in-month'}
+                        >{format(day, 'd')}
+                    </button>
                 </li>
             ))}
 
+                {/* EMPTY DATE AFTER END OF MONTH */}
             {Array((7 - ((firstDayIndex + daysInMonth.length) % 7)) % 7)
                     .fill(null)
                     .map((_, i) => 
-                <li key={`empty-end-${i}`} className="empty"></li>
+                <li key={`empty-end-${i}`} className="empty">
+                    <button></button>
+                </li>
         )}
 
             </ul>
