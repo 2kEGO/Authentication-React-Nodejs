@@ -8,7 +8,6 @@ export const CreateTask = ({toggle, toggleTask}) => {
 
   const toggleThis = () =>{
     toggleTask((prev) => !prev);
-    console.log("Toggle state:", toggle);
   }
 
   return (

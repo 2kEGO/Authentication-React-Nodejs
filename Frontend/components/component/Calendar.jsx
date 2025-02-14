@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react'
 import "./component _css/Calendar.css"
-import {eachDayOfInterval, endOfMonth, format, startOfMonth, getDay, getMonth, setYear, isToday} from 'date-fns'
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {eachDayOfInterval, endOfMonth, format, startOfMonth, getDay, isToday} from 'date-fns'
+
 
 const Calendar = ({currentDate}) => {
 

@@ -1,14 +1,18 @@
 .calendar {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
     gap: 10px;
 
+    width: 100%;
     margin: 0 1em;
 
     /* margin: 0 2em; */
 }
 
 .calendar-header {
+    width: 100%;
     display: grid;
     justify-items: center;
 
@@ -26,6 +30,7 @@
 }
 
 .calendar-date {
+    width: 100%;
     display: grid;
     justify-items: center;
 
