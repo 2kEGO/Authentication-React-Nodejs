@@ -80,3 +80,7 @@
     border: 0;
     border-radius: 50%;
 }
+
+.calendar-date li button:focus {
+    background-color: black;
+}

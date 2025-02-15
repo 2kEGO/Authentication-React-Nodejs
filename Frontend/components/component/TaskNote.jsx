@@ -1,8 +1,10 @@
 import React from 'react'
 
-const TaskNote = () => {
+const TaskNote = ({date}) => {
   return (
-    <div>TaskNote</div>
+    <div style={{display: date? 'block':'none'}}>
+      <input type="text" />
+    </div>
   )
 }
 

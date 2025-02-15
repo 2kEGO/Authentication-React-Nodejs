@@ -17,7 +17,7 @@ const ListTask = ({ task, setTask }) => {
         <li key={index}>
           <div className="list-info" id="info-left">
             <div className="info-left-wrapper">
-              <input type="checkbox" />
+              <input type="checkbox" onClick={() => deleteTask(index)}/>
               <h4>{taskItem}</h4>
             </div>
           </div>
@@ -25,12 +25,10 @@ const ListTask = ({ task, setTask }) => {
           <div className="list-info" id="info-right">
             <div id="date-display">
               <FontAwesomeIcon icon={faClock} />
-              <h4>12:00 PM</h4>
-              <span>-</span>
-              <h4>01:00 PM</h4>
+              <h4></h4>
             </div>
 
-            <button onClick={() => deleteTask(index)}>
+            <button>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
           </div>

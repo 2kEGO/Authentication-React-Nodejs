@@ -1,9 +1,10 @@
 import "./component _css/Calendar.css"
 import {eachDayOfInterval, endOfMonth, format, startOfMonth, getDay, isToday} from 'date-fns'
+import { useState } from "react";
+import {getFullYear, getMonth} from 'date-fns'
 
 
-const Calendar = ({currentDate}) => {
-
+const Calendar = ({currentDate, date,selectedDate, setSelectedDate}) => {
 
     const firstOfMonth = startOfMonth(currentDate);
     const lastOfMonth = endOfMonth(currentDate);
@@ -14,9 +15,18 @@ const Calendar = ({currentDate}) => {
 
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
+
+    const getDate = (e) => {
+        const value = Number(e.target.textContent);
+
+        const fullDate = format(new Date(currentDate.getFullYear(), currentDate.getMonth(), value), "yyyy-MM-dd");
+        // setSelectedDate((prevDate) => (Array.isArray(prevDate) ? [...prevDate, value] : [value]));
+        console.log(fullDate);
+    };
+
     return (
     <>
-        <div className="calendar">
+        <div className="calendar" style={{display: date? 'none':'block'}}>
             
             {/* Day in week SECTION */}
             <ul className='calendar-header'>
@@ -29,7 +39,7 @@ const Calendar = ({currentDate}) => {
             <ul className='calendar-date'>
                 {/* EMPTY DATE BEFORE START OF MONTH  */}
             {Array(firstDayIndex).fill(null).map((_,i) => 
-                <li key={`empty-${i}`} className="empty"><button disabled='true'></button></li>
+                <li key={`empty-${i}`} className="empty"><button></button></li>
             )}
             
                 {/* ACTUAL DATE IN THAT MONTH */}
@@ -37,6 +47,7 @@ const Calendar = ({currentDate}) => {
                 <li key={`date-${i}`}>
                     <button 
                         className={(isToday(day)) ? 'today': 'day-in-month'}
+                        onClick={getDate}                        
                         >{format(day, 'd')}
                     </button>
                 </li>
@@ -49,10 +60,12 @@ const Calendar = ({currentDate}) => {
                 <li key={`empty-end-${i}`} className="empty">
                     <button></button>
                 </li>
-        )}
+            )}
 
             </ul>
         </div>
+
+        
     </>
 
   )

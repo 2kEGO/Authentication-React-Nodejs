@@ -15,8 +15,10 @@ import TaskNote from '../../component/TaskNote';
 
 const HomePage = () => {
 
-  const today = new Date();
+  const [selectedDate, setSelectedDate] = useState(null)
 
+  const today = new Date();
+''
   const [tasks, setTasks] = useState([""])
   const [newTask, setNewtask] = useState([""])
 
@@ -31,12 +33,11 @@ const HomePage = () => {
   }
 
   function addTask(){
+
     if(newTask.trim() !== '') {
       setTasks(t => [...t,newTask])
-      setNewtask("")
     }
   }
-
 
   const handleInputChange = (e) => {
     setNewtask(e.target.value)
@@ -81,7 +82,7 @@ const HomePage = () => {
 
             {/* LIST OF TASKS */}
             <div className="list-container">
-               <ListTask task={tasks} setTask={setTasks}/>
+               <ListTask task={tasks} setTask={setTasks} />
             </div>
           </div>
 
@@ -91,69 +92,69 @@ const HomePage = () => {
     </div>
 
     {/* ADD TASK SECTION STARTS HERE*/} 
-    <div className="addTask-wrapper">
-      <div className="addTask-container">
+      <div className="addTask-wrapper">
+        <div className="addTask-container">
 
-        {/* ADD TASK FORM */}
-        <div className="addTask-form-wrapper" style={{ display: toggle ? "block" : "none" }}>
+          {/* ADD TASK FORM */}
+          <div className="addTask-form-wrapper" style={{ display: toggle ? "block" : "none" }}>
 
-          <div className="addTask-form-container">
+            <div className="addTask-form-container">
 
-              {/* INPUT FOR NEW TASK */}
-              <div className="addTask-form-item" id="item-1">
-                <span>
-                  <FontAwesomeIcon icon={faPaperclip}/>
-                </span>
-                <input 
-                  type="text" 
-                  name="" 
-                  placeholder='Create New Task' 
-                  value={newTask}
-                  onChange={handleInputChange}
-                />
-              </div>
-
-              {/* SELECT MONTH AND TOGGLE BETWEEN CALENDAR AND NOTE */}
-              <div className='addTask-form-item' id='item-2'>
-                <div className="form-button-container">
-                  <select name="" id="">
-                    <option value=""></option>
-                  </select>
-                  <button><FontAwesomeIcon icon={faCalendarDays} onClick={handleSwitch}/></button>
-                  <button><FontAwesomeIcon icon={faNoteSticky} onClick={handleSwitch}/></button>
+                {/* INPUT FOR NEW TASK */}
+                <div className="addTask-form-item" id="item-1">
+                  <span>
+                    <FontAwesomeIcon icon={faPaperclip}/>
+                  </span>
+                  <input 
+                    type="text" 
+                    name="" 
+                    placeholder='Create New Task' 
+                    value={newTask}
+                    onChange={handleInputChange}
+                  />
                 </div>
-              </div>
-              
-              {/* TOGGLE MONTHS */}
-              <div className="addTask-form-item" id='item-3'>
-                <SelectMonth currentDate={currentDate} setCurrentDate={setCurrentDate}/>
-              </div>
-              
-              {/* MONTH, NOTE AND TIME */}
-              <div className="addTask-form-item" id='item-4'>
-                <Calendar currentDate={currentDate} style={{display: date? 'none':'block'}}/>
-                <TaskNote style={{display: date? 'block':'none'}}/>
-              </div>
 
-              {/* TIME BUTTON AND ADD NEW TASK BUTTON */}
-              <div className="addTask-form-item" id='item-5'>
-                <div className="button-container">
-                  <button id='settime-button' >Set Time</button>
-                  <button id='save-button' onClick={addTask}>Save Changes</button>
+                {/* SELECT MONTH AND TOGGLE BETWEEN CALENDAR AND NOTE */}
+                {/* <div className='addTask-form-item' id='item-2'>
+                  <div className="form-button-container">
+                    <select name="" id="">
+                      <option value=""></option>
+                    </select>
+                    <button><FontAwesomeIcon icon={faCalendarDays} onClick={handleSwitch}/></button>
+                    <button><FontAwesomeIcon icon={faNoteSticky} onClick={handleSwitch}/></button>
+                  </div>
+                </div> */}
+                
+                {/* TOGGLE MONTHS */}
+                <div className="addTask-form-item" id='item-3'>
+                  <SelectMonth currentDate={currentDate} setCurrentDate={setCurrentDate}/>
                 </div>
-              </div>
+                
+                {/* MONTH, NOTE AND TIME */}
+                <div className="addTask-form-item" id='item-4'>
+                  <Calendar currentDate={currentDate} date={date} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
+                  <TaskNote date={date}/>
+                </div>
+
+                {/* TIME BUTTON AND ADD NEW TASK BUTTON */}
+                <div className="addTask-form-item" id='item-5'>
+                  <div className="button-container">
+                    <button id='settime-button' >Set Time</button>
+                    <button id='save-button' onClick={addTask}>Save Changes</button>
+                  </div>
+                </div> 
+
+            </div>
 
           </div>
 
-        </div>
+          {/* ADD TASK BUTTON */}
+          <div className="addTask-button-container">
+            <CreateTask toggle={toggle} toggleTask={toggleTask}/>
+          </div>
 
-        {/* ADD TASK BUTTON */}
-        <div className="addTask-button-container">
-          <CreateTask toggle={toggle} toggleTask={toggleTask}/>
         </div>
-
       </div>
-    </div>
     </>
     
   )
