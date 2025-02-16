@@ -1,10 +1,10 @@
 import "./component _css/Calendar.css"
 import {eachDayOfInterval, endOfMonth, format, startOfMonth, getDay, isToday} from 'date-fns'
 import { useState } from "react";
-import {getFullYear, getMonth} from 'date-fns'
+import {getMonth} from 'date-fns'
 
 
-const Calendar = ({currentDate, date,selectedDate, setSelectedDate}) => {
+const Calendar = ({currentDate,selectedDate, setSelectedDate}) => {
 
     const firstOfMonth = startOfMonth(currentDate);
     const lastOfMonth = endOfMonth(currentDate);
@@ -16,17 +16,10 @@ const Calendar = ({currentDate, date,selectedDate, setSelectedDate}) => {
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 
-    const getDate = (e) => {
-        const value = Number(e.target.textContent);
-
-        const fullDate = format(new Date(currentDate.getFullYear(), currentDate.getMonth(), value), "yyyy-MM-dd");
-        // setSelectedDate((prevDate) => (Array.isArray(prevDate) ? [...prevDate, value] : [value]));
-        console.log(fullDate);
-    };
 
     return (
     <>
-        <div className="calendar" style={{display: date? 'none':'block'}}>
+        <div className="calendar" >
             
             {/* Day in week SECTION */}
             <ul className='calendar-header'>
@@ -47,7 +40,7 @@ const Calendar = ({currentDate, date,selectedDate, setSelectedDate}) => {
                 <li key={`date-${i}`}>
                     <button 
                         className={(isToday(day)) ? 'today': 'day-in-month'}
-                        onClick={getDate}                        
+                        onClick={() => setSelectedDate(day)}                        
                         >{format(day, 'd')}
                     </button>
                 </li>

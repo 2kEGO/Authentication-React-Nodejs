@@ -15,7 +15,8 @@ import TaskNote from '../../component/TaskNote';
 
 const HomePage = () => {
 
-  const [selectedDate, setSelectedDate] = useState(null)
+  const [selectedDate, setSelectedDate] = useState([])
+  const [date, setDate] = useState([])
 
   const today = new Date();
 ''
@@ -24,18 +25,20 @@ const HomePage = () => {
 
   const [toggle, toggleTask] = useState(false)
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [date , note] = useState(false)
+  // const [date , note] = useState(false)
 
   // const [list, setList] = useState([""]);
 
-  function handleSwitch(){
-    note((prev) => !prev)
-  }
+  // function handleSwitch(){
+  //   note((prev) => !prev)
+  // }
 
   function addTask(){
 
     if(newTask.trim() !== '') {
       setTasks(t => [...t,newTask])
+      setDate(d => [...d,selectedDate])
+      
     }
   }
 
@@ -82,7 +85,7 @@ const HomePage = () => {
 
             {/* LIST OF TASKS */}
             <div className="list-container">
-               <ListTask task={tasks} setTask={setTasks} />
+               <ListTask task={tasks} setTask={setTasks} selectedDate={setSelectedDate} />
             </div>
           </div>
 
@@ -132,8 +135,8 @@ const HomePage = () => {
                 
                 {/* MONTH, NOTE AND TIME */}
                 <div className="addTask-form-item" id='item-4'>
-                  <Calendar currentDate={currentDate} date={date} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
-                  <TaskNote date={date}/>
+                  <Calendar currentDate={currentDate} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
+                  <TaskNote/>
                 </div>
 
                 {/* TIME BUTTON AND ADD NEW TASK BUTTON */}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useState} from 'react';
 import './component _css/ListTask.css'
 
-const ListTask = ({ task, setTask }) => {
+const ListTask = ({ task, setTask, selectedDate }) => {
 
   
   const deleteTask = (index) => {
@@ -23,10 +23,14 @@ const ListTask = ({ task, setTask }) => {
           </div>
 
           <div className="list-info" id="info-right">
-            <div id="date-display">
+
+          {Array.isArray(selectedDate) && selectedDate.map((date, index) => (
+            <div key={index} id="date-display">
               <FontAwesomeIcon icon={faClock} />
-              <h4></h4>
+              <h4>{date}</h4>
             </div>
+          ))}
+            
 
             <button>
               <FontAwesomeIcon icon={faEllipsisVertical} />
