@@ -4,7 +4,7 @@ import { useState } from "react";
 import {getMonth} from 'date-fns'
 
 
-const Calendar = ({currentDate,selectedDate, setSelectedDate}) => {
+const Calendar = ({currentDate, setNewDate}) => {
 
     const firstOfMonth = startOfMonth(currentDate);
     const lastOfMonth = endOfMonth(currentDate);
@@ -15,7 +15,10 @@ const Calendar = ({currentDate,selectedDate, setSelectedDate}) => {
 
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-
+    const getDate = (day) => {
+        const newTaskDate = format(new Date(day), 'd - MMM')
+        setNewDate(newTaskDate) 
+    }
 
     return (
     <>
@@ -39,8 +42,8 @@ const Calendar = ({currentDate,selectedDate, setSelectedDate}) => {
             {daysInMonth.map((day,i) =>(
                 <li key={`date-${i}`}>
                     <button 
-                        className={(isToday(day)) ? 'today': 'day-in-month'}
-                        onClick={() => setSelectedDate(day)}                        
+                        className='day-in-month'
+                        onClick={() => getDate(day)}                        
                         >{format(day, 'd')}
                     </button>
                 </li>

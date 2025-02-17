@@ -11,35 +11,30 @@ import Calendar from '../../component/Calendar';
 import TaskNote from '../../component/TaskNote';
 
 
-
-
 const HomePage = () => {
 
-  const [selectedDate, setSelectedDate] = useState([])
-  const [date, setDate] = useState([])
-
   const today = new Date();
-''
-  const [tasks, setTasks] = useState([""])
-  const [newTask, setNewtask] = useState([""])
+
+  const [date, setDate] = useState([])
+  const [newDate, setNewDate] = useState([])
+
+
+  const [tasks, setTasks] = useState([])  
+  const [newTask, setNewtask] = useState([''])
 
   const [toggle, toggleTask] = useState(false)
   const [currentDate, setCurrentDate] = useState(new Date());
-  // const [date , note] = useState(false)
 
-  // const [list, setList] = useState([""]);
-
-  // function handleSwitch(){
-  //   note((prev) => !prev)
-  // }
 
   function addTask(){
 
-    if(newTask.trim() !== '') {
+    if(newTask.trim() !== ''){
       setTasks(t => [...t,newTask])
-      setDate(d => [...d,selectedDate])
-      
+      setDate(d => [...d, newDate])
+      toggleTask(false)
+      setNewtask('')
     }
+    
   }
 
   const handleInputChange = (e) => {
@@ -85,7 +80,7 @@ const HomePage = () => {
 
             {/* LIST OF TASKS */}
             <div className="list-container">
-               <ListTask task={tasks} setTask={setTasks} selectedDate={setSelectedDate} />
+               <ListTask task={tasks} setTask={setTasks} date={date} setDate={setDate}/>
             </div>
           </div>
 
@@ -135,7 +130,7 @@ const HomePage = () => {
                 
                 {/* MONTH, NOTE AND TIME */}
                 <div className="addTask-form-item" id='item-4'>
-                  <Calendar currentDate={currentDate} selectedDate={selectedDate} setSelectedDate={setSelectedDate}/>
+                  <Calendar currentDate={currentDate} setNewDate={setNewDate}/>
                   <TaskNote/>
                 </div>
 

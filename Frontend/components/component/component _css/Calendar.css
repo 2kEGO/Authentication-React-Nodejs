@@ -61,7 +61,7 @@
     padding: 1em;
 }
 
-.today {
+.calendar-date li button:focus {
     background-color: var(--today-bg-color);
     color: var(--dayInMonth-bg-color);
 }
@@ -79,8 +79,4 @@
 
     border: 0;
     border-radius: 50%;
-}
-
-.calendar-date li button:focus {
-    background-color: black;
 }
